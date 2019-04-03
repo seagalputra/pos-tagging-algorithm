@@ -1,5 +1,7 @@
 from src.method import *
 from src.utils import *
+
+from nltk import word_tokenize
 import argparse
 
 def main():
@@ -22,7 +24,7 @@ def main():
     args = parser.parse_args()
     
     if args.baseline:
-        sentence = args.kalimat.split(" ")
+        sentence = word_tokenize(args.kalimat)
         predict_tags = predict_common_tag(sentence, hidden_table)
         print("Kalimat:", args.kalimat)
         print("Tags:", predict_tags)
